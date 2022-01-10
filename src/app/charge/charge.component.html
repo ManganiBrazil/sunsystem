@@ -1,0 +1,41 @@
+<div class="container-fluid center-content">
+  <form [formGroup]="chargeForm" (ngSubmit)="submit()" class="charge-form">
+    <div class="row">
+      <div class="col-sm text-center title">
+        <span class="align-middle">Exportar Lote</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field appearance="fill">
+          <input placeholder="Data Início:" matInput [matDatepicker]="begin" formControlName="begin">
+          <mat-datepicker-toggle matSuffix [for]="begin"></mat-datepicker-toggle>
+          <mat-datepicker #begin></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field appearance="fill">
+          <input placeholder="Data Fim:" matInput [matDatepicker]="end" formControlName="end">
+          <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+          <mat-datepicker #end></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div class="row">
+        <div class="col-sm btn-group-vertical">
+          <button type="submit" [disabled]="!chargeForm.valid" class="btn btn-primary mb-1">Exportar</button>
+        </div>
+
+        <div class="col-sm btn-group-vertical">
+          <button type="reset" class="btn btn-primary mb-1">Limpar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

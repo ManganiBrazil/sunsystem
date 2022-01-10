@@ -1,0 +1,86 @@
+<div class="container-fluid left-content">
+
+  <form [formGroup]="filterForm" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field appearance="fill">
+          <mat-label>Filtro de Consulta</mat-label>
+          <mat-select name="filter" formControlName="filter">
+            <mat-option *ngFor="let filter of filterValues" [value]="filter.id">{{filter.value}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field appearance="fill">
+          <mat-label>Código:</mat-label>
+          <input matInput formControlName="code">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <mat-form-field appearance="fill">
+          <mat-label>Nome/Número:</mat-label>
+          <input matInput formControlName="nameNumber">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div>
+      <div class="row">
+        <div class="col-sm btn-group-vertical">
+          <button type="submit" [disabled]="!filterForm.valid" class="btn btn-primary mb-1">Exportar</button>
+        </div>
+
+        <div class="col-sm btn-group-vertical">
+          <button type="reset" class="btn btn-primary mb-1">Limpar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col">
+    <span class="display-6">{{filterName}}</span>
+  </div>
+
+</div>
+
+<table class="table table-striped mb-5">
+  <thead>
+  <tr>
+    <th scope="col">Código</th>
+    <th scope="col">{{filterName}}</th>
+    <th scope="col">Descrição</th>
+    <th scope="col">Data Criação</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td>Jacob</td>
+    <td>Thornton</td>
+    <td>@fat</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td>Larry</td>
+    <td>the Bird</td>
+    <td>@twitter</td>
+  </tr>
+  </tbody>
+</table>
