@@ -29,6 +29,10 @@ export class FilterComponent implements OnInit {
   }
 
   private initForm(): FormGroup {
+
+    this.filterForm.setControl()
+
+
     return this.formBuilder.group({filter: 1, code: '', nameNumber: ''});
   }
 

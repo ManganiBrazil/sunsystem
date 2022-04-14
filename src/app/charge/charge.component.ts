@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'bp-charge',
@@ -7,7 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class ChargeComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private datePipe: DatePipe,
+              private formBuilder: FormBuilder,
+              @Inject(MAT_DIALOG_DATA) public details: DialogData )  {}
 
   ngOnInit(): void {}
 
@@ -17,6 +21,8 @@ export class ChargeComponent implements OnInit {
   })
 
   submit(): void {
+    this.datePipe.transform()
+
     console.log(this.chargeForm.value);
   }
 }
